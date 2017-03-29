@@ -192,55 +192,14 @@ for_window [class="(?i)spotify"] floating enable
 for_window [class="(?i)pidgin"] floating enable
 for_window [class="(?i)gimp"] floating enable
 for_window [class="^.*(?i)konsole"] border pixel 1
-
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-#bar {
-#    output DP1
-#	position top
-#	status_command py3status -c ~/.config/i3/i3status.conf
-#    font pango:Hack, FontAwesome 10
-#}
-
-#bar {
-#    output DP2
-#	position top
-#	status_command i3status -c ~/.config/i3/i3status.conf
-#    font pango:Hack, FontAwesome 10 
-#}
-#
-bar {
-    output eDP1
-	position top
-	status_command i3blocks
-    i3bar_command i3bar -t
-    strip_workspace_numbers yes
-    separator_symbol "■"
-    tray_padding 0
-#py3status -c ~/.config/i3/i3status.conf
-#	status_command i3status -c ~/.config/i3/i3status.conf
-    font pango:Hack, FontAwesome 20 
-    tray_output eDP1
-    tray_output DP1
-    tray_output DP2
-    colors {
-        statusline         $white
-        background         $transparent
-        separator          $transparent
-
-#                          BORDER       BACKGROUND   TEXT
-        focused_workspace  $transparent $transparent $white
-        inactive_workspace $transparent $transparent $white
-        active_workspace   $transparent $transparent $white
-        urgent_workspace   $darkred     $darkred     $transparent
-        binding_mode       $darkred     $darkred     $transparent
-    }
-}
+for_window [class="^.*(?i)opera"] border pixel 1
+for_window [class="^.*(?i)slack"] border pixel 1
 
 # runs when i3 starts, (but not restarts)
 exec --no-startup-id /usr/lib/gnome-settings-daemon/gnome-settings-daemon  # ssh keychain
 exec --no-startup-id compton
-exec --no-startup-id feh --bg-fill ~/backgrounds/space_sky_stars_79233_2560x1600.jpg
+exec --no-startup-id feh --bg-fill ~/backgrounds/misty.jpg
+exec --no-startup-id ~/.config/polybar/launch.sh
 focus_follows_mouse no
 
 bindsym XF86MonBrightnessDown   exec xbacklight -dec 10
